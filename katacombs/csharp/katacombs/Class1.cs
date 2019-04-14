@@ -31,18 +31,22 @@ namespace katacombs
 
     public class GameMap
     {
-        public string GetTitle(int[] location)
+        public string GetTitle(int[] coordinates)
         {
-            return Location[$"{location[0]},{location[1]},{location[2]}"].Title;
+            return Field[coordinates[0], coordinates[1], coordinates[2]].Title;
         }
-        public string GetDescription(int[] location)
+        public string GetDescription(int[] coordinates)
         {
-            return Location[$"{location[0]},{location[1]},{location[2]}"].Description;
+            return Field[coordinates[0], coordinates[1], coordinates[2]].Description;
         }
 
-        Dictionary<string, Location> Location = new Dictionary<string,Location> {
-            {"0,0,0", new Location("title zero", "description 0")},
-            {"0,0,1", new Location("title one", "description 1")}
+        Location[,,] Field = {
+            {
+                {
+                    new Location("title zero", "description 0"),
+                    new Location("title one", "description 1")
+                }
+            }
         };
     }
 
